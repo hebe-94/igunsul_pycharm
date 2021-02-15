@@ -21,10 +21,12 @@ driver.find_element_by_name('pw').send_keys('qwer1234!@')
 sample = driver.find_element_by_css_selector('#login_btn')
 driver.execute_script("arguments[0].click();", sample)
 
-sample = driver.find_element_by_class_name("menu03")
-driver.execute_script("arguments[0].click();", sample)
+# 엠에스그리드 넘어가기
+# sample = driver.find_element_by_class_name("menu03")
+# driver.execute_script("arguments[0].click();", sample)
 
-driver.find_element_by_css_selector('#headerMyRoomTabWrap > div:nth-child(3)').click()
+# 송암으로 다시 넘어가기
+# driver.find_element_by_css_selector('#headerMyRoomTabWrap > div:nth-child(3)').click()
 
 
 #웹페이지의 소스코드를 파싱하기 위해 Beautiful Soup 라이브러리 호출
@@ -33,9 +35,12 @@ from bs4 import BeautifulSoup
 driver.get("http://www.igunsul.net/myroom")
 driver.find_element_by_css_selector('#headerMyRoomTabWrap > div:nth-child(3)').click()
 html = driver.page_source
-soup = BeautifulSoup(html, 'lxml')
+soup = BeautifulSoup(html,'lxml')
+print(soup)
+
+print('여기까지')
 
 # 사업명 하나씩 꺼내오기
-title_list = soup.find_all('list2detailAnchor listColormyroom_list myroom_list')
+title_list = soup.find_all('a','list2detailAnchor listColormyroom_list myroom_list')
 for title in title_list:
-    print(title.text)
+    print(title.text.strip())
