@@ -45,7 +45,10 @@ soup = bs(requests.text, 'html.parser')
 # 공고명 : <title>
 #
 result = soup.findAll('li')
-
+# 120 종목
+# 121 기초금액
+# 123 투찰율
+# 124 투찰 마강일
 print(requests.text)
 
 print('result값 확인')
