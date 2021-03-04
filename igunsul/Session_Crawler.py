@@ -30,7 +30,7 @@ result = soup.findAll('a', {"class": "list2detailAnchor listColormyroom_list myr
 # 반복문 개수 결정(반복문 시작)
 print(len(result))
 
-print(result)
+# print(result)
 
 
 
@@ -43,7 +43,8 @@ soup = bs(requests.text, 'html.parser')
 
 
 # 공고명 : <title>
-#
+# findall을 어떻게 써야하는지 다시 확인 할 것
+# 그후 완료가 된다면 그 다음에 반복문으로 돌릴것
 result = soup.findAll('li')
 # 120 종목
 # 121 기초금액
